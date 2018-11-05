@@ -1,0 +1,333 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Resumo
+\end_layout
+
+\begin_layout Section
+Introdução
+\end_layout
+
+\begin_layout Standard
+Com a evolução dos sistemas de comunicação, muitas aplicação foram desenvolvidas
+ e incorporadas ao cotidiano.
+ Sistemas capazes de prover o funcionamento de diversos serviços na 
+\emph on
+web
+\emph default
+ como atendimento bancário, 
+\emph on
+streaming 
+\emph default
+de mídia, serviços de localização, agenciamento de transporte, etc.
+ Ao passo desse desenvolvimento outra onda tecnológica tomou força nos últimos
+ anos, a chamada 
+\emph on
+Internet of Things 
+\emph default
+(IoT ou Internet das Coisas) tem sido capaz de suportar cenários cada vez
+ mais interativos, integrando diferentes redes e dispositivos, tudo isso
+ baseado na 
+\emph on
+web.
+
+\emph default
+ 
+\end_layout
+
+\begin_layout Standard
+Essa grande rede está distribuida ao redor do globo, composta por diversos
+ dispositivos de variado porte que vão desde grandes 
+\emph on
+mainframes
+\emph default
+ à simples dispositivos embarcados.
+ Isso torna esse sistema altamente escalável e tolerante à falhas, porém
+ também possibilita que seus nós sejam utilizados para outros fins, às vezes
+ com propósitos destrutíveis.
+\end_layout
+
+\begin_layout Standard
+Primordialmente, é necessário definirmos as tecnologias que podem ser utilizadas
+ para o funcionamento da Internet, assim como dos dispositivos que compõe
+ IoT e suas características principais, assim como detalharmos as ferramentas
+ à serem aplicadas.
+\end_layout
+
+\begin_layout Standard
+Este trabalho tem como objetivo principal fazer uma análise de um cenário
+ em que dispositivos empregados para a construção de redes IoT, podem ser
+ utilizados de forma destrutiva para atacar, desestabilizar e até mesmo
+ destruir serviços de internet, que são de extrema importância para o mundo
+ atual.
+\end_layout
+
+\begin_layout Subsection
+Objetivos
+\end_layout
+
+\begin_layout Subsubsection
+Objetivos Gerais
+\end_layout
+
+\begin_layout Standard
+Analisar um cenário em que tecnologias usadas para IoT são aplicadas de
+ forma que sejam utilizadas para ataque à sistemas Web, e tentativa de desativaç
+ão do sistemas através de ataque de negação de serviço.
+\end_layout
+
+\begin_layout Subsubsection
+Objetivos Específicos
+\end_layout
+
+\begin_layout Standard
+Utilizar dados coletados durante o ataque para a extração de dados à respeito
+ da robustês dos servidores web.
+\end_layout
+
+\begin_layout Section
+Fundamentação Teórica
+\end_layout
+
+\begin_layout Subsection
+Internet
+\end_layout
+
+\begin_layout Standard
+A principio, podemos definir uma internet ou internetwork como um conjunto
+ de redes conectadas entre si.
+ Segundo Forouzan (2007, p.17), a Internet (rede comercial utilizada pela
+ população civil) não é apenas uma estrutura hierárquica de redes, mas sim
+ uma mistura de redes locais e globais que conecta dispositivos.
+ E que é praticamente impossível representá-la devido às suas constantes
+ mudança, como entrada e saída de nós, redes, etc.
+ 
+\end_layout
+
+\begin_layout Subsection
+Arquitetura cliente-servidor
+\end_layout
+
+\begin_layout Subparagraph
+Web Server
+\end_layout
+
+\begin_layout Standard
+Segundo Morimoto (2015, p.347), os servidores web são a espinha dorsal da
+ Internet, são eles que hospedam todas páginas, incluindo os mecanismos
+ de busca e servem como base para todo tipo de aplicativo via web.
+ Um dos principais softwares que executam essa função é o Apache, que suporta
+ desde os recursos básicos, à expansão do suporte através de módulos para
+ linguagens de programação, bancos de dados, etc.
+ Existem vários tipos de servidores voltados para web e diversas aplicações,
+ como e-mail, armazenamento e transferência de arquivos, armazenamento de
+ banco de dados, etc.
+\end_layout
+
+\begin_layout Standard
+Neste trabalho foi utilizado o Apache da familia 2.x que se destaca pelo
+ seu desempo e flexibilidade.
+\end_layout
+
+\begin_layout Subsection
+IoT
+\end_layout
+
+\begin_layout Subsubsection
+Dispositivos embarcados
+\end_layout
+
+\begin_layout Subsubsection
+NodeMCU/ESP8266
+\end_layout
+
+\begin_layout Subsection
+Ataque de negação de serviço
+\end_layout
+
+\begin_layout Subsubsection
+DDoS vs DoS
+\end_layout
+
+\begin_layout Subsubsection
+ICMP echo request
+\end_layout
+
+\begin_layout Standard
+De acordo com Mota (2013, p.212) os ataques de 
+\emph on
+flood 
+\emph default
+por 
+\emph on
+ping
+\emph default
+ (ICMP 
+\emph on
+echo request) 
+\emph default
+são realizados quando nós de uma rede realizam grande quantidade de requisições
+ do tipo 
+\emph on
+ping
+\emph default
+, com o intúito de causar estresse em computadores servidores.
+ O cabeçalho desse datagrama possui 32 bits, sendo divididos da seguinte
+ forma, os primeiros 8 bits determinam o seu tipo, e os 8 bits posteriores
+ o seu código, e os 16 bits restante estão relacionados ao checksum
+\emph on
+.
+ 
+\emph default
+Nestre trabalho foi utilizado a requisição de tipo 8 - 
+\emph on
+echo request
+\emph default
+ e código 0 - 
+\emph on
+ping echo 
+\emph default
+request.
+
+\emph on
+ 
+\end_layout
+
+\begin_layout Standard
+Ao enviar multiplas requisições por segundo, a maquina servidores tentará
+ interpretá-las e respondê-las, porém devido a suas limitações fisicas,
+ podem ser constatadas instabilidades, esse cenário se agrava quando multiplos
+ host estão fazendo grande quantidade de requisições para essa máquina.
+\end_layout
+
+\begin_layout Standard
+A figuta a seguir ilustra como esse tipo de ataque acontece.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Ilustracoes/flood.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ataque de flood ICMP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Metodologia
+\end_layout
+
+\begin_layout Section
+Experimentação
+\end_layout
+
+\begin_layout Section
+Resultados obtidos
+\end_layout
+
+\begin_layout Section
+Conclusão
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,5645 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+%\usepackage{hyperref}
+%
+\usepackage{listings,lstautogobble}
+\usepackage{empheq}
+\usepackage{longtable}
+\usepackage{steinmetz,environ}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{amsmath,indentfirst}
+\usepackage{caption}
+\usepackage[table,usenames,dvipsnames]{xcolor}
+\definecolor{celeste1}{RGB}{0,154,205}
+\definecolor{verde5}{RGB}{0,150,0}
+\definecolor{verde1}{RGB}{0,200,0}
+\definecolor{firebrick}{RGB}{178,34,34}
+\definecolor{crimson}{RGB}{220,20,60}
+\definecolor{reda}{RGB}{220,20,70}
+\definecolor{sea}{RGB}{46,139,87}
+\definecolor{rosadito}{RGB}{255,192,203}
+\definecolor{orange3}{RGB}{205,102,0}
+\definecolor{royalblue}{RGB}{0,35,102}
+\definecolor{azvi}{RGB}{148,0,211}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{multirow} 
+\setlength{\columnsep}{0.5cm}
+\usepackage[titletoc]{appendix}
+
+
+
+% tabela longa que quebra entre p\'aginas
+\usepackage{longtable}
+%identando
+%\usepackage{indentfirst}
+%imagen en negritas
+%\usepackage[labelfont={it,rm}, tableposition=top]{caption}
+%\usepackage[labelfont={it,rm}]{caption}
+%%%%%%%%%%%%%%%%
+%%%PACKEGE CAPTION
+%%%%%%%%%%%%%%%%
+
+\DeclareCaptionFont{colorFigure}{\color{black}}
+\DeclareCaptionFont{colorTable}{\color{black}}
+\captionsetup[figure]{labelfont={bf,footnotesize,colorFigure},textfont={it,footnotesize},format=hang}%%
+%labelsep=period}
+\captionsetup[table]{labelfont={bf,footnotesize,colorTable}, format=hang,textfont={it,footnotesize}}
+\captionsetup[lstlisting]{labelfont={bf,footnotesize,colorTable}, format=hang,textfont={it,footnotesize}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%Package SECTSTY
+%Para centrar el capitulo
+\usepackage{sectsty}
+%\chapterfont{\centering}
+%cambiar tamanho das fontes
+\sectionfont{\fontsize{15}{15}\selectfont\color{black}}
+\subsectionfont{\fontsize{13}{13}\selectfont\color{black}}
+\subsubsectionfont{\fontsize{12}{12}\selectfont\color{black}\em}
+\usepackage{url}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage[siunitx]{circuitikz}
+\usepackage[thinlines]{easytable}
+\setlength{\extrarowheight}{2pt}
+\renewcommand*\arraystretch{1}
+
+%\renewcommand{\theequation}{\thesection.\arabic{equation}}
+%\usepackage{titlesec}
+\usepackage{varioref}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+
+%\makeatletter
+%\renewcommand\thefigure{\mbox{\thechapter-\arabic{figure}}}
+%\makeatother
+%\crefformat{figure}{#2\color{Cyan!40!blue}{{[Fig.~#1#3]}}}
+%\crefformat{equation}{#2\color{Cyan!40!blue}{{[Eq.~#1#3]}}}
+%\crefformat{table}{#2\color{Cyan!40!blue}{{[Tab.~#1#3]}}}
+
+\crefname{lstlisting}{listing}{listings}
+\Crefname{lstlisting}{Listing}{Listings}
+\crefname{subsection}{subsection}{subsections}
+\crefname{appendix}{appendix}{appendixes}
+\crefformat{figure}{\textcolor{black}{[#2fig.~#1#3]}}
+\crefformat{equation}{\textcolor{black}{[#2eq.~#1#3]}}
+\crefformat{table}{\textcolor{black}{[#2tab.~#1#3]}}
+\crefformat{appendix}{\textcolor{black}{[#2ap.~#1#3]}}
+\crefformat{subsection}{\textcolor{black}{#2subsecção~#1#3}}
+\crefformat{listing}{\textcolor{black}{[#2lst.~#1#3]}}
+\crefformat{Listing}{\textcolor{black}{[#2lst.~#1#3]}}
+
+
+%\crefname{figure}{\em{[Fig.~(\thefigure)]}}{figures}
+%\Crefname{figure}{Figure}{Figures}
+
+%nmumero de linas na tabela
+\newcounter{trow}
+\newcommand{\firstrow}{\setcounter{trow}{1}\arabic{trow}}
+\newcommand{\nextrow}{\addtocounter{trow}{1}\arabic{trow}}
+
+\usepackage{pgfornament}%ORNAMENT
+\usepackage{pstricks}
+
+
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.8em}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{textcomp}
+
+%cor pagina
+%\usepackage{pagecolor}\usepackage{afterpage}
+
+\usepackage{tcolorbox}
+\usepackage{calc}
+\usepackage{colortbl}
+\usetikzlibrary{arrows.meta}
+\tcbuselibrary{skins,theorems,breakable,fitting}
+\newtcolorbox{resposta}[2][]{
+empty,
+coltitle=red!75!black,fonttitle=\bfseries,
+borderline horizontal={0.5mm}{0pt}{red!50!white},
+breakable }
+%colbacktitle=gray!30,
+%colback=white,
+%coltitle=black,
+%colframe=gray!90,
+%title=Resposta,
+%fonttitle=\em,
+%borderline vertical={2pt}{0pt}{red},
+%before upper={\parindent2em\parskip0.8em},breakable}
+
+\newtcolorbox[auto counter,number format=\Alph]{perg}[2][]{%
+colbacktitle=crimson!80,
+coltitle=white,
+colframe=azvi,
+colback=azvi!10!white,
+fonttitle=\bfseries,
+title=Questão~ \thetcbcounter #2,#1,
+breakable%center title
+}
+\usepackage{pdfpages}
+
+
+
+%########### LISTINGS ################
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\newcommand{\SimCod}[1]{\textcolor{blue}{#1}\ttfamily\bfseries}
+\newcommand{\ColorNum}[1]{\textcolor{firebrick}{#1}\ttfamily\bfseries}
+
+
+\lstset{
+ % backgroundcolor=\color{azvi!4},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\scriptsize\ttfamily,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=top,                    % sets the caption-position to bottom
+  commentstyle=\color{gray},    % comment style
+  deletekeywords={},            % if you want to delete keywords from the given language
+  %escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue}\ttfamily\bfseries,   % keyword style
+  language=Python,                 % the language of the code
+  %otherkeywords={@,&&,^,.,-,+,*,...,classdef,properties,methods,logsig},           % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  %numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\ttfamily\color{black}\scriptsize, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{blue!80},     % string literal style
+  tabsize=4,	                   % sets default tabsize to 2 spaces
+  title=\lstname,                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+  %literate=*%{\{}{{\SimCod{\{}}}1
+               %{(}{{\SimCod{(}}}1
+               %{;}{{\SimCod{;}}}1
+               %{,}{{\SimCod{,}}}1            
+              % {>}{{\SimCod{$>$}}}1
+               %{<}{{\SimCod{$<$}}}1
+               %{=}{{\SimCod{$=$}}}1
+               %{.}{{\SimCod{$\centerdot$}}}1
+               %{0}{{{\ColorNum{0}}}}1
+               %{.0}{{{\ColorNum{.0}}}}1
+               %{1}{{{\ColorNum{1}}}}1
+               %{2}{{{\ColorNum{2}}}}1
+               %{3}{{{\ColorNum{3}}}}1
+               %{4}{{{\ColorNum{4}}}}1
+               %{5}{{{\ColorNum{5}}}}1
+               %{6}{{{\ColorNum{6}}}}1
+               %{7}{{{\ColorNum{7}}}}1
+               %{8}{{{\ColorNum{8}}}}1
+               %{9}{{{\ColorNum{9}}}}1
+             % {)}{{\SimCod{)}}}1
+%,
+%xleftmargin=5pt,
+%framexleftmargin=5pt,
+%autogobble=true
+linewidth=\textwidth,
+%xleftmargin=0.28\textwidth,
+%xrightmargin=0.28\textwidth,
+}
+%\usepackage[alf, abnt-verbatim-entry=no]{abntex2cite}
+\PassOptionsToPackage{hyphens}{url}
+\urlstyle{tt}
+\usepackage{url}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language brazilian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "times" "default"
+\font_sans "helvet" "default"
+\font_typewriter "courier" "default"
+\font_math "default" "auto"
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize 12
+\spacing other 1.5
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0.75cm
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Título do Trabalho
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand
+\backslash
+tituloRelatorio{
+\backslash
+Large{
+\end_layout
+
+\end_inset
+
+Utilização de dispositivos embarcados voltados para 
+\emph on
+IoT
+\emph default
+ aplicados em ataques DDoS contra servidores Web
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+COMEÇO DA CARATURA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{titlepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+LOGO DA UFC
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+newpagecolor{black}
+\backslash
+afterpage{
+\backslash
+restorepagecolor}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+textrm{
+\backslash
+color{black}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+includegraphics[scale=0.11]{img/LOGO_PNG}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+vspace{-0.4cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\backslash
+textsc {
+\backslash
+large{}Universidade Federal Do Ceará}}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+vspace{-0.3cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+textit{Campus} de Sobral}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset VSpace smallskip
+\end_inset
+
+Curso de Engenharia da Computação
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size large
+\color black
+Francisco Wesley Melo Silva
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{
+\backslash
+tituloRelatorio}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+par
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+pgfornament[width=8cm, color = red!50!blue!32!, symmetry=h]{83}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}{
+\backslash
+large 
+\backslash
+par}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vfill{}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="3">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+DATA DE HOJE (COLOCA A DATA DE GERAÇÃO DO PDF)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{Sobral $-$ CE, 
+\backslash
+today{}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{titlepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\noun on
+Francisco Wesley Melo Silva
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 2cm
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "15.5cm"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{large}
+\end_layout
+
+\end_inset
+
+Utilização de dispositivos embarcados voltados para 
+\emph on
+IoT
+\emph default
+ aplicados em ataques DDoS contra servidores Web 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{large}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align right
+\begin_inset VSpace 3cm
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "48col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+small{}
+\end_layout
+
+\end_inset
+
+Trabalho de conclusão de curso apresentado ao Curso Engenharia de Computação
+ como requisito parcial para obtenção do grau de bacharel em Engenharia
+ de Computação na Universidade Federal do Ceará 
+\emph on
+- campus
+\emph default
+ Sobral.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\begin_inset VSpace 3cm
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Orientador
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Prof.
+ Me.
+ Wendley Souza Silva
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset VSpace 3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+Sobral - CE, Novembro de 2018
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset External
+	template PDFPages
+	filename /mnt/fa8af144-0137-4d4a-9d0d-efd07de96fb2/@home/wesley/Documentos/TCC/ficha_catalografica.pdf
+
+\end_inset
+
+
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\noun on
+Francisco Wesley Melo Silva
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "15.5cm"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{large}
+\end_layout
+
+\end_inset
+
+Utilização de dispositivos embarcados voltados para 
+\emph on
+IoT
+\emph default
+ aplicados em ataques DDoS contra servidores Web 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{large}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align right
+\begin_inset VSpace 1.5cm
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "48col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+small{}
+\end_layout
+
+\end_inset
+
+Trabalho de conclusão de curso apresentado ao Curso Engenharia de Computação
+ como requisito parcial para obtenção do grau de bacharel em Engenharia
+ de Computação na Universidade Federal do Ceará 
+\emph on
+- campus
+\emph default
+ Sobral.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\begin_inset VSpace 0.5cm
+\end_inset
+
+Aprovado em: ____/____/________.
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing single
+\noindent
+\align center
+BANCA EXAMINADORA
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing single
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="12" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+________________________________________ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Prof.
+ Me.
+ Wendley Souza Silva (Orientador) 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Universidade Federal do Ceará (UFC)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+________________________________________ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Prof.
+ Dr.
+ Xxxxxxxxx Xxxxxxx 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Universidade Federal do Ceará (UFC)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+_________________________________________ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Prof.
+ Dr.
+ Xxxxxxxxx Xxxxxxx 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Universidade Federal do Ceará (UFC) 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+AGRADECIMENTOS
+\end_layout
+
+\begin_layout Standard
+Lorem ipsum mollis potenti quisque vitae aenean tempor purus, sociosqu vel
+ nec aliquet eros id metus ut, purus integer ullamcorper pretium etiam curae
+ enim.
+ phasellus aliquam volutpat tristique sapien venenatis euismod taciti, sit
+ ut maecenas ipsum curae sollicitudin, consequat curabitur elit accumsan
+ ut quisque.
+ pellentesque egestas dapibus feugiat laoreet a faucibus quisque proin lectus
+ eleifend faucibus netus blandit, hac class ornare diam nibh condimentum
+ sodales maecenas commodo fermentum sapien.
+ ut nullam congue proin rutrum lectus vitae risus ac curabitur, suspendisse
+ adipiscing consectetur tincidunt fermentum convallis eget ante feugiat
+ vehicula, phasellus molestie luctus nullam convallis hac adipiscing vulputate.
+ 
+\end_layout
+
+\begin_layout Standard
+Et sapien pulvinar convallis aliquam potenti vehicula eget, luctus aliquam
+ eu erat pretium ipsum dolor aenean, mattis ut volutpat posuere faucibus
+ neque.
+ aliquam nisl sem quisque ultrices turpis venenatis posuere dolor lorem,
+ fermentum lorem venenatis curabitur fermentum nec orci phasellus, pretium
+ nullam curabitur iaculis duis gravida taciti aenean.
+ tempus lorem laoreet aliquam non pharetra posuere elit volutpat mollis,
+ pellentesque sit class eu nec turpis felis facilisis eleifend, lobortis
+ molestie augue convallis ac lacus gravida rhoncus.
+ tristique arcu venenatis aliquam pharetra vulputate potenti eu pharetra,
+ ac leo elementum commodo libero vel ac magna, lectus accumsan orci potenti
+ tortor fringilla nullam condimentum, viverra mi massa nullam ad metus at.
+ 
+\end_layout
+
+\begin_layout Standard
+Hac lacus eu elementum feugiat conubia ipsum pharetra arcu, tincidunt aenean
+ ultricies senectus aenean ut aliquam phasellus nam, eu ullamcorper nec
+ arcu volutpat sapien ipsum.
+ non potenti feugiat fermentum elit proin nam tempor, purus mattis dictum
+ ante porta phasellus.
+ ut habitasse vehicula adipiscing augue tempor tincidunt magna semper, nam
+ aliquam id sociosqu cubilia dictumst erat volutpat, mattis potenti sed
+ tortor tempor mollis turpis amet, cursus sit cras aenean iaculis dictum
+ molestie.
+ inceptos class consequat feugiat cras quisque felis blandit, sagittis tristique
+ viverra curabitur imperdiet augue, cursus volutpat sodales nisi aliquam
+ nam.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset VSpace 15cm
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align right
+\begin_inset Quotes eld
+\end_inset
+
+DRACO DORMIENS NUNQUAM TITILLANDUS
+\begin_inset Quotes erd
+\end_inset
+
+ - Lorem Ipsun
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lorem ipsum mollis potenti quisque vitae aenean tempor purus, sociosqu vel
+ nec aliquet eros id metus ut, purus integer ullamcorper pretium etiam curae
+ enim.
+ phasellus aliquam volutpat tristique sapien venenatis euismod taciti, sit
+ ut maecenas ipsum curae sollicitudin, consequat curabitur elit accumsan
+ ut quisque.
+ pellentesque egestas dapibus feugiat laoreet a faucibus quisque proin lectus
+ eleifend faucibus netus blandit, hac class ornare diam nibh condimentum
+ sodales maecenas commodo fermentum sapien.
+ ut nullam congue proin rutrum lectus vitae risus ac curabitur, suspendisse
+ adipiscing consectetur tincidunt fermentum convallis eget ante feugiat
+ vehicula, phasellus molestie luctus nullam convallis hac adipiscing vulputate.
+ Et sapien pulvinar convallis aliquam potenti vehicula eget, luctus aliquam
+ eu erat pretium ipsum dolor aenean, mattis ut volutpat posuere faucibus
+ neque.
+ aliquam nisl sem quisque ultrices turpis venenatis posuere dolor lorem,
+ fermentum lorem venenatis curabitur fermentum nec orci phasellus, pretium
+ nullam curabitur iaculis duis gravida taciti aenean.
+ tempus lorem laoreet aliquam non pharetra posuere elit volutpat mollis,
+ pellentesque sit class eu nec turpis felis facilisis eleifend, lobortis
+ molestie augue convallis ac lacus gravida rhoncus.
+ tristique arcu venenatis aliquam pharetra vulputate potenti eu pharetra,
+ ac leo elementum commodo libero vel ac magna, lectus accumsan orci potenti
+ tortor fringilla nullam condimentum, viverra mi massa nullam ad metus at.
+\end_layout
+
+\begin_layout Standard
+Palavras-chave: lorem, ipsum, dolor.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\series bold
+ABSTRACT
+\end_layout
+
+\begin_layout Standard
+Lorem ipsum mollis potenti quisque vitae aenean tempor purus, sociosqu vel
+ nec aliquet eros id metus ut, purus integer ullamcorper pretium etiam curae
+ enim.
+ phasellus aliquam volutpat tristique sapien venenatis euismod taciti, sit
+ ut maecenas ipsum curae sollicitudin, consequat curabitur elit accumsan
+ ut quisque.
+ pellentesque egestas dapibus feugiat laoreet a faucibus quisque proin lectus
+ eleifend faucibus netus blandit, hac class ornare diam nibh condimentum
+ sodales maecenas commodo fermentum sapien.
+ ut nullam congue proin rutrum lectus vitae risus ac curabitur, suspendisse
+ adipiscing consectetur tincidunt fermentum convallis eget ante feugiat
+ vehicula, phasellus molestie luctus nullam convallis hac adipiscing vulputate.
+ Et sapien pulvinar convallis aliquam potenti vehicula eget, luctus aliquam
+ eu erat pretium ipsum dolor aenean, mattis ut volutpat posuere faucibus
+ neque.
+ aliquam nisl sem quisque ultrices turpis venenatis posuere dolor lorem,
+ fermentum lorem venenatis curabitur fermentum nec orci phasellus, pretium
+ nullam curabitur iaculis duis gravida taciti aenean.
+ tempus lorem laoreet aliquam non pharetra posuere elit volutpat mollis,
+ pellentesque sit class eu nec turpis felis facilisis eleifend, lobortis
+ molestie augue convallis ac lacus gravida rhoncus.
+ tristique arcu venenatis aliquam pharetra vulputate potenti eu pharetra,
+ ac leo elementum commodo libero vel ac magna, lectus accumsan orci potenti
+ tortor fringilla nullam condimentum, viverra mi massa nullam ad metus at.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+PARA COLOCAR EQUAÇÕES PASSO A PASSO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%EQUACOES
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+NewEnviron{EqEst}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{empheq}[box={
+\backslash
+fboxsep=8pt
+\backslash
+colorbox{azvi!10}}]{align}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+BODY
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{empheq}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+rowcolors{4}{}{}
+\backslash
+arrayrulewidth=0.8pt
+\end_layout
+
+\begin_layout Plain Layout
+
+%===============================================================================
+======
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+rowcolors{4}{}{}
+\backslash
+arrayrulewidth=0.8pt
+\end_layout
+
+\begin_layout Plain Layout
+
+%Orcad symbol
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand*
+\backslash
+orcad{
+\backslash
+textbf{OrCAD}
+\backslash
+textsuperscript{
+\backslash
+footnotesize{
+\backslash
+texttrademark}}}
+\end_layout
+
+\begin_layout Plain Layout
+
+%matlab symbol
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+newcommand*
+\backslash
+matlab{$
+\backslash
+mathsf{
+\backslash
+mathbf{Matlab^{
+\backslash
+copyright}}}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand*
+\backslash
+matlab{
+\backslash
+textbf{Matlab}
+\backslash
+textsuperscript{
+\backslash
+footnotesize{
+\backslash
+copyright}}}
+\end_layout
+
+\begin_layout Plain Layout
+
+%Multisim symbol
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand*
+\backslash
+multisim{
+\backslash
+textbf{NI Multisim}
+\backslash
+textsuperscript{
+\backslash
+footnotesize{
+\backslash
+texttrademark}}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand*
+\backslash
+bp{
+\backslash
+textit{Back-propagation}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand{
+\backslash
+arq}[1]{
+\backslash
+fcolorbox{gray!0}{yellow!50}{
+\backslash
+texttt{#1}}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+lstlistingname}{Lista}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{page}{1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+COMEÇA O DOCUMENTO DO RELATORIO
+\end_layout
+
+\begin_layout Plain Layout
+PARA RELATÓRIO, NÃO É NECESSÁRIO SEPARAR EM DOCUMENTOS FILHOS
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList table
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList algorithm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+
+\series bold
+\size large
+Lista de Siglas
+\end_layout
+
+\begin_layout Standard
+
+\color white
+\begin_inset Tabular
+<lyxtabular version="3" rows="21" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ACK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Acknoledge Message - 
+\emph default
+Mensagem de Reconhecimento
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ADC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Analog Digital Converter - 
+\emph default
+Conversor Analógico-Digital
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CPU
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Central Processing Unit - Unidade Central de Processamento
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DAC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Digital Analog Converter 
+\emph default
+- Conversos Digital-Analógico
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DDoS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Distributed Denial of Service - 
+\emph default
+Negação Distribuida de Serviço
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DoS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Denial of Service - 
+\emph default
+Negação de Serviço
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GPIO
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+General Purpose Input Output - 
+\emph default
+Propósito Geral de Entrada e Saída
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+HTML
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+HyperText Markup Language - 
+\emph default
+Linguagem de Marcação de Hipertexto
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+HTTP
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+HyperText Transfer Protocol - 
+\emph default
+Protocolo de Transferência de Hipertexto
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ICMP
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Internet Control Message Protocol - 
+\emph default
+Protocolo de Mensagem de Controle da Internet
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+IDE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Integrated Development Environment - 
+\emph default
+Ambiente de Desenvolvimento Integrado
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+IoT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Internet of Things - 
+\emph default
+Internet das Coisas
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NIC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Network Interface Card - 
+\emph default
+Placa da Interface de Rede
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PWM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Pulse Width Modulation - 
+\emph default
+Modulação de Tamanho de Pulso
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RAM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Random Access Memory
+\emph default
+ - Memória de Acesso Randômico
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RFC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Request for comment - 
+\emph default
+Requisita comentários
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SRAM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+: 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Static Random Access Memory
+\emph default
+ - Memória de Acesso Randômico Estático
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SYN
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Synchronize Message - 
+\emph default
+Mensagem de Sincronização
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCP
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Transmission Control Protocol - 
+\emph default
+Protocolo de Controle de Transmissão
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UDP
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+User Datagram Protocol - 
+\emph default
+Protocolo de Datagrama do Usuário
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+USB
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Universal Serial Bus -
+\emph default
+ Barramento Serial Universal
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introdução
+\end_layout
+
+\begin_layout Standard
+Com a evolução dos sistemas de comunicação, muitas aplicações foram desenvolvida
+s e incorporadas ao cotidiano.
+ Sistemas capazes de prover o funcionamento de diversos serviços na 
+\emph on
+web
+\emph default
+ como atendimento bancário, 
+\emph on
+streaming 
+\emph default
+de mídia, serviços de localização, agenciamento de transporte, etc.
+ Ao passo desse desenvolvimento outra onda tecnológica tomou força nos últimos
+ anos, a chamada IoT (
+\emph on
+Internet of Things
+\emph default
+ ou Internet das Coisas) tem sido capaz de suportar cenários cada vez mais
+ interativos, integrando diferentes redes e dispositivos, tudo isso baseado
+ na 
+\emph on
+web.
+
+\emph default
+ 
+\end_layout
+
+\begin_layout Standard
+Essa grande rede está distribuída ao redor do globo, composta por diversos
+ dispositivos de variado porte que vão desde grandes 
+\emph on
+mainframes,
+\emph default
+ a simples dispositivos embarcados.
+ Isso torna esse sistema altamente escalável e tolerante a falhas porém,
+ também possibilita que seus nós sejam utilizados para outros fins, às vezes
+ com propósitos destrutíveis.
+\end_layout
+
+\begin_layout Standard
+Com potencial para causar graves problemas em diversos cenários, como no
+ mercado financeiro, controle de rodovias, processos industriais, e especialment
+e em sistemas de comunicação em tempo real do tipo 
+\emph on
+hard real-time
+\emph default
+ que, segundo Kopetz (1997, p.3) são sistemas os quais em uma única falha
+ pode ter consequências catastróficas, por exemplo no controle de tráfego
+ aéreo, ou sistemas de proteção contra desastres naturais.
+ 
+\end_layout
+
+\begin_layout Standard
+Primordialmente, é necessário definirmos as tecnologias que podem ser utilizadas
+ para o funcionamento da Internet, assim como dos dispositivos que compõe
+ IoT e suas características principais, posteriormente serão descritas as
+ ferramentas e técnicas utilizadas para obtenção dos dados que serão analisados.
+\end_layout
+
+\begin_layout Standard
+O modo como as redes que compõe a Internet foi estruturado há muito tempo,
+ de acordo com Pastor-Sorras 
+\emph on
+et al 
+\emph default
+(2007, p.3) trata-se de um sistema distribuído de redes menores que podem
+ transmitir informações entre si.
+ As informações transferidas entre computadores são dividas em pacotes que
+ são repassados para dispositivos que tem a função de transferi-los entre
+ diferentes redes, são os chamados 
+\emph on
+roteadores.
+ 
+\end_layout
+
+\begin_layout Standard
+Ainda em Pastor-Satorras 
+\emph on
+et al 
+\emph default
+(2007, p.4), um roteador não está diretamente ligado a todos os outros roteadores
+ que compõe a Internet.
+ Ele apenas tem a função de definir que 
+\begin_inset Quotes eld
+\end_inset
+
+direção
+\begin_inset Quotes erd
+\end_inset
+
+ os dados irão percorrer para chegar ao destinatário, além de reorganizar
+ o tráfego de informações quando um dos nós da rede 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$-$
+\end_layout
+
+\end_inset
+
+ computadores, roteadores, servidores, etc.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$-$
+\end_layout
+
+\end_inset
+
+ não estão funcionando devidamente.
+ A figura 1 mostra de forma simplificada o funcionamento da Internet e sua
+ intersecção de redes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /mnt/fa8af144-0137-4d4a-9d0d-efd07de96fb2/@home/wesley/Documentos/TCC/Ilustracoes/estrutura da internet.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Estrutura da Internet de forma simplificada
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+fonte: o autor.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A grande quantidade de rotas que existe para enviar uma mensagem a partir
+ de um nó para outro possibilita que uma delas possa ser utilizada com propósito
+ de desestabilizar nós específicos como servidores, ou mesmo roteadores
+ tornando incomunicável um vasto conjunto de nós.
+ Isso acontece devido às falhas de segurança, que permitam que um grande
+ fluxo de requisições seja direcionado para um único destinatário.
+\end_layout
+
+\begin_layout Standard
+Contudo, apenas uma falha de segurança não é suficiente para que seja performada
+ uma ofensiva.
+ Um ataque de negação de serviço, por exemplo, utiliza diversos dispositivos
+ conectados numa rede para direcionar um fluxo de requisições.
+ Diversos tipos de dispositivos podem ser utilizados; desde computadores
+ convencionais, presentes nas casas das pessoas, até mesmo objetos inteligentes
+ conectados à Internet, como demonstrará este trabalho.
+\end_layout
+
+\begin_layout Standard
+A figura 2, exemplifica um conjunto de nós de uma rede, executando um ataque
+ a um servidor Web convencional.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /mnt/fa8af144-0137-4d4a-9d0d-efd07de96fb2/@home/wesley/Documentos/TCC/Ilustracoes/modelo_ataque.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Exemplo de ataque de negação de serviço
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+fonte: O autor.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Objetivos
+\end_layout
+
+\begin_layout Subsubsection
+Objetivos Gerais
+\end_layout
+
+\begin_layout Standard
+Este trabalho tem como objetivo principal fazer uma análise de um cenário
+ em que dispositivos empregados para a construção de redes IoT, podem ser
+ utilizados de forma destrutiva para atacar, desestabilizar e até mesmo
+ desabilitar serviços de Internet que são de grande importância para o mundo
+ atual.
+\end_layout
+
+\begin_layout Standard
+Analisar um cenário em que tecnologias usadas para IoT são aplicadas de
+ forma que sejam utilizadas para ataque a sistemas Web, e tentativa de desativaç
+ão dos sistemas através de ataque de negação de serviço (DoS).
+\end_layout
+
+\begin_layout Subsubsection
+Objetivos Específicos
+\end_layout
+
+\begin_layout Itemize
+Utilizar dados coletados durante o ataque para a extração de dados a respeito
+ da robustez dos servidores web;
+\end_layout
+
+\begin_layout Itemize
+Propiciar uma análise crítica a respeito das brechas de seguranças em dispositiv
+os IoT.
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Fundamentação teórica
+\end_layout
+
+\begin_layout Subsection
+Arquitetura cliente-servidor
+\end_layout
+
+\begin_layout Subsubsection
+Web Server
+\end_layout
+
+\begin_layout Standard
+Segundo Morimoto (2015, p.347), os servidores 
+\emph on
+web
+\emph default
+ são a espinha dorsal da Internet, são eles que hospedam todas as páginas,
+ incluindo os mecanismos de busca e servem como base para todo aplicativo
+ via web.
+ Um dos principais softwares que executam essa função é o Apache, que suporta
+ desde os recursos básicos como prover uma simples página em HTML, à expansão
+ do suporte através de módulos para linguagens de programação, bancos de
+ dados, etc.
+ Existem vários tipos de servidores voltados para web e diversas aplicações,
+ como e-mail, armazenamento e transferência de arquivos, armazenamento de
+ banco de dados, etc.
+\end_layout
+
+\begin_layout Standard
+Neste trabalho foi utilizado o Apache da família 2.x que se destaca pelo
+ seu desempo e flexibilidade.
+\end_layout
+
+\begin_layout Standard
+Segundo Tanenbaum 
+\emph on
+et al
+\emph default
+ (2006, p.556), o servidor web Apache é um software completo com diversas
+ melhorias para suportar os tipos de arquivos presentes na web, com configuração
+ profundamente personalizáveis e, ao mesmo tempo independente de plataformas
+ especificas, ou seja, capaz de prover seu próprio ambiente de desenvolvimento
+ e posteriormente implementá-lo em outros sistemas operacionais.
+\end_layout
+
+\begin_layout Standard
+Ainda em Tanenbaum 
+\emph on
+et al
+\emph default
+ (2006, p.557), é informado que devido os navegadores web, os servidores
+ 
+\emph on
+web
+\emph default
+ utilizam HTTP como protocolo de comunicação.
+ O HTTP é virtualmente implementado no topo da pilha TCP, e por essa razão
+ o núcleo do Apache assume que todos as requisições são do tipo TCP; e por
+ padrão, qualquer requisições UDP não é processada sem que antes haja modificaçõ
+es no núcleo do Apache.
+\end_layout
+
+\begin_layout Subsection
+
+\emph on
+Internet of Things
+\end_layout
+
+\begin_layout Standard
+Em Buyya (2016, p.10), 
+\emph on
+Internet of Things 
+\emph default
+é definido por dois pilares importantes: 
+\begin_inset Quotes eld
+\end_inset
+
+Internet
+\begin_inset Quotes erd
+\end_inset
+
+ e 
+\begin_inset Quotes eld
+\end_inset
+
+Coisas
+\begin_inset Quotes erd
+\end_inset
+
+.
+ O autor ressalta ainda que nem todos os objetos capazes de se conectar
+ à Internet entrarão na categoria de 
+\begin_inset Quotes eld
+\end_inset
+
+coisa
+\begin_inset Quotes erd
+\end_inset
+
+ pois, essa notação é usada para encapsular um conjunto genérico de entidades,
+ incluindo dispositivos inteligentes, sensores e até mesmo seres humanos;
+ tornando-se acessível à qualquer momento e a partir de qualquer lugar.
+ Isso implica que objetos devem se conectar sem qualquer restrição.
+ 
+\end_layout
+
+\begin_layout Standard
+Segundo Buyya (2016, p.11), é crucial a conectividade ubíqua para IoT, e
+ para atender as aplicações necessárias para suportar um conjunto diverso
+ de dispositivos e protocolos de comunicação, oriundos de sensores capazes
+ de detectar e reportar a mensagem necessária para poderosos servidores,
+ utilizados para armazenamento, processamento e extração de conhecimentos
+ à partir dessas informações.
+ Isso requer um integração plena dos dispositivos móveis, apetrechos responsávei
+s pela comunicação, como roteadores, e claro os seres humanos como controladores.
+ 
+\end_layout
+
+\begin_layout Standard
+Ainda segundo o autor, a tecnologia dominante no início das aplicações comerciai
+s utilizando IoT foi a identificação por Rádio-Frequência (RFID) porém,
+ com o avanço das tecnologias de comunicação, das redes de sensores sem
+ fio, e dispositivos dotados de 
+\emph on
+Bluetooth
+\emph default
+, ocasionaram uma mudança nesse cenário.
+ Além de tornar viável o atendimento aos requisitos essenciais de sistemas
+ de comunicação em tempo real, tais como: escalabilidade, suporte à heterogeneid
+ade, integração total, e processamento em tempo real.
+ 
+\end_layout
+
+\begin_layout Standard
+De acordo com daCosta 
+\emph on
+et al
+\emph default
+ (2013, p.23), o desenvolvimento dessa nova arquitetura é proveniente da
+ Internet tradicional e outras tecnologias que propõem princípios básicos,
+ tais como:
+\end_layout
+
+\begin_layout Itemize
+Ser o mínimo específico, deixando a arquitetura mais aberta possível;
+\end_layout
+
+\begin_layout Itemize
+Os sistemas devem ser projetados para falhar da forma menos impactante possível;
+\end_layout
+
+\begin_layout Itemize
+Os graus de complexidade e funcionalidade da rede são aplicados somente
+ quando necessários;
+\end_layout
+
+\begin_layout Itemize
+A arquitetura é criada a partir de conceitos simples que são construídos
+ em sistemas complexos usando sinais analógicos providos de fenômenos naturais;
+\end_layout
+
+\begin_layout Itemize
+Possibilitar que dados sejam extraídos em tempo real.
+\end_layout
+
+\begin_layout Standard
+A arquitetura emergente da Internet das Coisas pretende ser mais inclusiva
+ para um mercado de maior variedade, reduzindo as informações que trafegam
+ na rede.
+ Ela deve ser extremamente tolerante às falhas, erros e conexões intermitentes
+ naquele nível.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Dispositivos embarcados
+\end_layout
+
+\begin_layout Standard
+Um sistema embarcado é dispositivo eletrônico desenvolvido com um propósito
+ muito específico.
+ Um sistema embarcado consiste em um microprocessador que é interconectados
+ com outros componentes discretos.
+ Cada componente é selecionado baseado nos requisitos funcionais do sistema.
+\end_layout
+
+\begin_layout Standard
+Frequentemente, sistemas embarcados menores são usados para controlar um
+ comportamento de aspecto específico de um sistema muito mais complexo.
+ Sistemas embarcados executam um papel diferente de um computador de propósito
+ geral, como os computadores de mesa (
+\emph on
+desktops
+\emph default
+).
+ O usuário final não é capaz alterar como o dispositivo funciona.
+ 
+\end_layout
+
+\begin_layout Standard
+Suas principais vantagens são:
+\end_layout
+
+\begin_layout Itemize
+Baixo custo;
+\end_layout
+
+\begin_layout Itemize
+Desempenho aprimorado;
+\end_layout
+
+\begin_layout Itemize
+Confiabilidade.
+\end_layout
+
+\begin_layout Standard
+Segundo Shukla (2016, p.15), há quatro categorias de sistemas embarcados,
+ são eles:
+\end_layout
+
+\begin_layout Itemize
+Computação geral, com aplicação semelhante aos computadores de mesa, mas
+ em 
+\emph on
+hardware 
+\emph default
+embarcado;
+\end_layout
+
+\begin_layout Itemize
+Sistemas de controle, aplicado em sistemas de controle com resposta em tempo
+ real;
+\end_layout
+
+\begin_layout Itemize
+Processamento de sinais, aplicado na computação envolvendo grandes taxas
+ de transmissão;
+\end_layout
+
+\begin_layout Itemize
+Comunicação e Redes, empregado na infraestrutura de comunicação, em roteadores,
+ etc.
+\end_layout
+
+\begin_layout Standard
+Neste trabalho foi utilizado a plataforma de prototipagem NodeMCU, que consiste
+ em microprocessador embarcado capaz de se conectar facilmente às redes
+ de comunicação.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+ESP8266/NodeMCU
+\end_layout
+
+\begin_layout Standard
+De acordo com Kodali 
+\emph on
+et al
+\emph default
+ (2017, p.4), trata-se de uma solução altamente integrada e de baixo consumo.
+ Composto por GPIOs, um chip 12C, ADC, DAC, PWM, Wi-Fi, regulador de tensão
+ e uma conexão USB).
+\end_layout
+
+\begin_layout Standard
+A tabela 1 expõe algumas características do ESP8266:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Características de hardware ESP8266
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="11" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Componente
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Detalhes
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Processador
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tensilica L-106 32 bits 80 MHz
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Voltagem operacional
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.5V ~3.6V
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Corrente operacional
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+~ 80mA
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Frequência de operação (Wi-Fi)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.4 GHz ~ 2.5 GHz Tx/Rx
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Protocolos de rede
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+IPv4, TCP/UDP/HTTP/FTP
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Segurança 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+WPA2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Encriptação 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+WEP/TKIP/AES
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Memória RAM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+64 KB de memória para instruções
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Memória ROM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+96 KB de memória para dados
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GPIO
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16 pinos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+fonte: Manual fornecido pelo fabricante.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Com aparatos físicos Sua aplicação é semelhante à da plataforma de prototipagem
+ Arduino, inclusive é possível utilizar a IDE do Arduino para codificar
+ instruções para o ESP8266, embora oficialmente seja indicado que se utilize
+ a linguagem 
+\emph on
+Lua.
+ 
+\emph default
+A figura 3, ilustra o dispositivo NodeMCU utilizado no experimento.
+\end_layout
+
+\begin_layout Standard
+Neste trabalho foram utilizados 8 (oito) unidades do ESP8266.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /mnt/fa8af144-0137-4d4a-9d0d-efd07de96fb2/@home/wesley/Documentos/TCC/Ilustracoes/nodemcu_vs.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+NodeMCU
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+fonte: Espressif (2018)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+ESP32
+\end_layout
+
+\begin_layout Standard
+Em Allafi (2017, p.2), o EPS32 é descrito como um microcontrolador 
+\emph on
+open-source
+\emph default
+ baseado numa placa de 
+\emph on
+Input 
+\emph default
+e 
+\emph on
+Output
+\emph default
+.
+ A placa é desenvolvida para suportar Wi-Fi, e conta com 36 GPIO.
+ 
+\end_layout
+
+\begin_layout Standard
+Sua aplicação é semelhante às do ESP8266, porém, com um hardware mais robusto.
+ 
+\end_layout
+
+\begin_layout Standard
+A tabela a seguir mostra algumas características básicas do ESP32.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Características do ESP32
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Item
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Descrição
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Voltagem operacional
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.2V ~ 3.6V
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GPIO
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+36 pinos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ADC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14 pinos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DAC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2 pinos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Memória 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16 MB
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SRAM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+250 KB
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Processador
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Xtensa dual-core 32 bits 160 MHz
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Frequência de operação (Wi-Fi)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.4 GHz
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Conectividade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Wi-Fi
+\emph default
+ e 
+\emph on
+Bluetooth
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+fonte: Espressif (2018)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Neste trabalho foi utilizado 2 (duas) unidades do ESP32, da marca WROOM.
+ A figura 4, ilustra o dispositivo ESP32 utilizado no experimento.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /mnt/fa8af144-0137-4d4a-9d0d-efd07de96fb2/@home/wesley/Documentos/TCC/Ilustracoes/esp32.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+ESP32
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+fonte: Espressif (2018)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Ataque de negação de serviço
+\end_layout
+
+\begin_layout Subsubsection
+Ataque DoS
+\end_layout
+
+\begin_layout Standard
+Existem diversas técnicas de ataques DoS.
+ Neste trabalho foi utilizada a técnica de 
+\emph on
+Flooding
+\emph default
+ TCP SYN.
+ De acordo com Jian (2000, ? apud Gu 2007, p.5) esses ataques frequentemente
+ exploram protocolos de rede estruturados, devido esses protocolos consumirem
+ recursos para manter metadados.
+ O 
+\emph on
+flooding 
+\emph default
+TCP SYN é um dos tipos de ataque que tem grave impacto em muitos sistemas.
+\end_layout
+
+\begin_layout Standard
+Quando um cliente tenta estabelecer uma conexão TCP com o servidor, o cliente
+ inicialmente envia uma mensagem SYN para o servidor.
+ De acordo com Filho (2013, p.141) as mensagens SYN são usadas para iniciar
+ uma conexão e as mensagens ACK servem para que um dos lados, ao receber
+ uma mensagem sobre um pacote, confirme, para quem o enviou, que sabe o
+ número do pacote seguinte e confirmar que recebeu o anterior.
+ Jian (2000, ? 
+\emph on
+apud
+\emph default
+ Gu 2007, p.5) relata que o servidor então informa o conhecimento dessa mensagem
+ ao enviar uma mensagem SYN-ACK.
+\end_layout
+
+\begin_layout Standard
+O cliente completa o estabelecimento da conexão ao responder com outra mensagem
+ ACK.
+ A conexão entre o cliente e o servidor está então aberta, e os dados podem
+ ser trafegados entre eles.
+ O abuso dessa conexão acontece quando a conexão está 
+\begin_inset Quotes eld
+\end_inset
+
+semiaberta
+\begin_inset Quotes erd
+\end_inset
+
+.
+ O servidor precisa alocar memória para armazenar as informações de cada
+ conexão, e a memória não será desocupada até que o servidor receba a mensagem
+ ACK final ou a conexão 
+\begin_inset Quotes eld
+\end_inset
+
+semiaberta
+\begin_inset Quotes erd
+\end_inset
+
+ expire.
+\end_layout
+
+\begin_layout Standard
+Os 
+\emph on
+hosts
+\emph default
+ atacantes são capazes de criar uma grande quantidade de conexões através
+ da falsificação de IPs em mensagens SYN, ou ignorando as SYN-ACKs, repetindo
+ o processo de abertura de conexão.
+ 
+\end_layout
+
+\begin_layout Standard
+O ICMP
+\emph on
+ Smurf Flooding
+\emph default
+ é frequentemente usado para determinar se um computador numa rede está
+ respondendo.
+ Para que isso ocorra, um pacote de requisição ICMP 
+\emph on
+echo
+\emph default
+ é enviado ao computador.
+ Na seção seguinte, esse processo será explicado com mais detalhes.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+ICMP 
+\emph on
+echo request
+\end_layout
+
+\begin_layout Standard
+De acordo com Filho (2013, p.212) os ataques de 
+\emph on
+flood 
+\emph default
+por 
+\emph on
+ping
+\emph default
+ (ICMP 
+\emph on
+echo request) 
+\emph default
+são realizados quando os nós de uma rede realizam grande quantidade de requisiçõ
+es do tipo 
+\emph on
+ping
+\emph default
+, com o intuito de causar estresse em computadores servidores.
+ O cabeçalho desse datagrama possui 32 
+\emph on
+bits
+\emph default
+, sendo divididos da seguinte forma, os primeiros 8 
+\emph on
+bits
+\emph default
+ determinam o seu tipo, e os 8 
+\emph on
+bits
+\emph default
+ posteriores o seu código, e os 16 
+\emph on
+bits
+\emph default
+ restante estão relacionados ao 
+\emph on
+checksum.
+ 
+\emph default
+Neste trabalho foi utilizado a requisição de tipo 8 - 
+\emph on
+echo request
+\emph default
+ e código '0 - 
+\emph on
+ping echo 
+\emph default
+request'.
+
+\emph on
+ 
+\end_layout
+
+\begin_layout Standard
+Ao enviar múltiplas requisições por segundo, a maquina servidora tentará
+ interpretá-las e respondê-las, porém, devido a suas limitações físicas
+ nem todas as solicitações poderão ser respondidas, podem ser constatadas
+ instabilidades, esse cenário se agrava quando múltiplos 
+\emph on
+hosts
+\emph default
+ estão fazendo grande quantidade de requisições para essa máquina.
+\end_layout
+
+\begin_layout Standard
+A figura 5, a seguir ilustra como esse tipo de ataque acontece.
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /mnt/fa8af144-0137-4d4a-9d0d-efd07de96fb2/@home/wesley/Documentos/TCC/Ilustracoes/flood.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ataque de 
+\emph on
+flood
+\emph default
+ ICMP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+fonte: O autor.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Outra forma de ataque utilizando ICMP acontece de acordo com CERT (1998
+ ? 
+\emph on
+apud
+\emph default
+ Gu 2007, p.212), quando um 
+\emph on
+host 
+\emph default
+é capaz de forjar requisições ICMP tendo o endereço da vítima como fonte
+ do ataque e o endereço de 
+\emph on
+broadcast
+\emph default
+ dessas redes como o endereço de destino.
+ Se o 
+\emph on
+firewall 
+\emph default
+ou roteador da rede não for capaz de filtrar todos os pacotes, eles serão
+ entregues a todas as máquinas daquela rede.
+ Essas máquinas enviarão respostas ao ICMP 
+\emph on
+echo
+\emph default
+ de volta para a fonte (que foi adulterada e é vítima).
+ Assim, a rede e a máquina atacada estarão congestionadas.
+\end_layout
+
+\begin_layout Subsubsection
+DDoS
+\end_layout
+
+\begin_layout Standard
+Em Gu 
+\emph on
+et al
+\emph default
+ (2007, p.8) é relatado que vários ataques são feitos a partir de diversos
+ 
+\emph on
+hosts 
+\emph default
+num sistema distribuído.
+ Geralmente um ataque DDoS ocorre em duas fases.
+ Primeiro, um atacante constrói uma rede de ataque que é constituída por
+ milhares de dispositivos, conhecidos também como 
+\begin_inset Quotes eld
+\end_inset
+
+zumbis
+\begin_inset Quotes erd
+\end_inset
+
+ ou 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+bots
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+.
+ Então o atacante causa um tremendo volume de tráfego contra a vítima.
+ 
+\end_layout
+
+\begin_layout Standard
+Para construir uma rede de ataque, o atacante procura por dispositivos que
+ estão desprotegidos.
+ Em geral, um 
+\emph on
+host 
+\emph default
+pode ser comprometido de duas formas.
+ 
+\end_layout
+
+\begin_layout Standard
+Sendo a primeira em que o usuário é enganado e forçado a executar programas
+ maliciosos, tais como: vírus, 
+\emph on
+spywares
+\emph default
+ etc.
+ Ao executar esses programas, eles podem fazer a máquina atuar como 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+bot
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+, fazendo parte de uma 
+\emph on
+botnet.
+ 
+\emph default
+Quando houver o comando por parte do mestre (aquele que comanda a rede),
+ todos os 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+bots
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+ enviarão requisições ICMP para o alvo.
+\end_layout
+
+\begin_layout Standard
+A segunda forma é também à partir de programas maliciosos que escaneiam
+ e exploram vulnerabilidades em computadores remotos.
+ Tais vulnerabilidades permitem que o atacante adentre à máquina e instale
+ 
+\emph on
+softwares
+\emph default
+ para que a máquina infectada além de fazer parte da 
+\emph on
+botnet, 
+\emph default
+passe também a procurar por vulnerabilidades em dispositivos para fazer
+ deles, parte da rede atacante.
+\end_layout
+
+\begin_layout Standard
+A figura 6 a seguir ilustra o tráfego durante um ataque DDoS.
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /mnt/fa8af144-0137-4d4a-9d0d-efd07de96fb2/@home/wesley/Documentos/TCC/Ilustracoes/DDoS.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fluxo de tráfego durante ataque DDoS
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+fonte: O autor.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\emph on
+Sniffer
+\end_layout
+
+\begin_layout Standard
+Segundo Asrodia 
+\emph on
+et al
+\emph default
+ (2013, p.1), 
+\emph on
+sniffing
+\emph default
+ de pacotes é o processo de capturar as informações transmitidas através
+ de uma rede.
+ Nesse processo, o NIC captura todo o tráfego que flui dentro ou fora de
+ uma rede.
+ Essa prática é principalmente usada no gerenciamento de redes, monitoramento
+ e o 
+\emph on
+ethical hacking
+\emph default
+.
+ Para executar o 
+\emph on
+sniffing 
+\emph default
+são utilizados os chamados 
+\emph on
+sniffers
+\emph default
+ de pacotes.
+\end_layout
+
+\begin_layout Standard
+Ainda segundo o autor, quando um pacote é transferido de um nó remetente
+ a um nó destinatário, geralmente passa por muitos dispositivos intermediários.
+ Um nó cujo NIC está configurado em modo 'promíscuo' recebe todas as informações
+ que percorre a rede.
+ Cada NIC tem um endereço físico que é diferente de outro, e de outra rede.
+ 
+\end_layout
+
+\begin_layout Standard
+Quando um pacote chega ao NIC, o endereço do 
+\emph on
+hardware
+\emph default
+ do 
+\emph on
+frame
+\emph default
+ é combinado com o endereço físico que o NIC tem, mas se o definirmos no
+ modo 'promíscuo', todos os pacotes chegarão naquela interface.
+ Quando é utilizado um 
+\emph on
+switch 
+\emph default
+que já passam os dados filtrados então é utilizado uma técnica para capturar
+ todas os dados da rede.
+ Quando o NIC aceita os pacotes, eles são copiados para a memória e posteriormen
+te para o 
+\emph on
+kernel 
+\emph default
+e em seguida para a aplicação utilizada pelo administrador da rede.
+\end_layout
+
+\begin_layout Standard
+A figura 7 a seguir mostra o esquema do funcionamento de um 
+\emph on
+sniffer.
+
+\emph default
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /mnt/fa8af144-0137-4d4a-9d0d-efd07de96fb2/@home/wesley/Documentos/TCC/Ilustracoes/sniffer.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama do funcionamento de 
+\emph on
+sniffer
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+fonte: O autor.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Existem diversos 
+\emph on
+softwares
+\emph default
+ que executam essa função, tais como Wireshark, TCPDump e Nmap.
+ Neste trabalho foi utilizado o 
+\emph on
+sniffer
+\emph default
+ Wireshark.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Wireshark
+\end_layout
+
+\begin_layout Standard
+De acordo com Goyal 
+\emph on
+et al
+\emph default
+ (2017, p.1), o Wireshark é a ferramenta de 
+\emph on
+sniffing
+\emph default
+ mais popular.
+ Trata-se de uma interface gráfica simples dotada de opções de filtragem
+ dos pacotes capturados.
+ É uma ferramenta gratuita, assim como a maioria dos demais 
+\emph on
+sniffers
+\emph default
+ disponíveis.
+ Ele tem a capacidade de 
+\emph on
+scanear
+\emph default
+ qualquer tipo de redes 
+\emph on
+Ethernet
+\emph default
+, Wi-Fi e até mesmo 
+\emph on
+Bluetooth
+\emph default
+.
+ Essa ferramenta pode rapidamente detectar e reportar ataques DoS, em 
+\emph on
+firewalls 
+\emph default
+ou qualquer brecha de segurança em redes.
+ 
+\end_layout
+
+\begin_layout Standard
+Além disso, é capaz de percorrer profundamente cada pacote e separar diferentes
+ pacotes por protocolo de rede.
+\end_layout
+
+\begin_layout Standard
+A seguinte figura (8) mostra a interface gráfica do Wireshark.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /mnt/fa8af144-0137-4d4a-9d0d-efd07de96fb2/@home/wesley/Documentos/TCC/Ilustracoes/wireshark_tela.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Interface gráfica do Wireshark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+fonte: O autor.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Metodologia
+\end_layout
+
+\begin_layout Standard
+Foi utilizado uma máquina dedicada que executava o sistema operacional 
+\emph on
+Ubuntu Server 
+\emph default
+na versão 16.04.5 LTS e o servidor web Apache 2.
+ O 
+\emph on
+hardware 
+\emph default
+disponível em tal máquina está descrito na tabela 3, a seguir.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\emph on
+Hardware 
+\emph default
+dedicado para a máquina virtual
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Hardware
+\emph default
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Descrição:
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Processador
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Intel Pentium Dual Core
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Memória RAM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2 GB
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Armazenamento
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40 GB
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Placa de rede
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Placa de rede 
+\emph on
+on-board
+\emph default
+ Ethernet
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+fonte: O autor.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como citado anteriormente, foram utilizadas 8 unidades do NodeMCU e 2 unidades
+ do ESP32, que atuaram como computadores que faziam requisições ICMP constanteme
+nte.
+ 
+\end_layout
+
+\begin_layout Standard
+Após a gravação do código no microprocessador embarcado no NodeMCU e no
+ ESP32, são definidas alguns detalhes.
+ Inicialmente, na função 
+\emph on
+setup( ) 
+\emph default
+são colocadas instruções que tratarão da conexão do dispositivo a uma rede
+ Wi-Fi.
+ Ainda sobre o código, na função 
+\emph on
+loop( )
+\emph default
+, estão guardadas as rotinas que de fato farão as requisições ao servidor
+ 
+\emph on
+Web.
+ 
+\emph default
+Uma característica do NodeMCU é que semelhante à plataforma 
+\emph on
+Arduino 
+\emph default
+as instruções da função 
+\emph on
+loop( ), 
+\emph default
+são executadas repetidamente do começo ao fim, a menos que ocorra um evento
+ que force a interrupção, por exemplo: falta de energia, ou erro não tratado
+ pelo código.
+\end_layout
+
+\begin_layout Standard
+Num computador conectado à mesma rede, o 
+\emph on
+software Wireshark é 
+\emph default
+executado
+\emph on
+, 
+\emph default
+atuando como 
+\emph on
+Sniffer
+\emph default
+, ele tem a função de analisar os pacotes que trafegam na rede.
+ Neste trabalho, o 
+\emph on
+Wireshark
+\emph default
+ foi definido para procurar por pacotes ICMP, tanto de requisição como respostas
+ (
+\emph on
+echo requests 
+\emph default
+e 
+\emph on
+echo responses)
+\emph default
+.
+ O mesmo conta com ferramentas próprias que fazem análises estatísticas
+ a respeito do tráfego.
+ E dados obtidos podem ser exportados para outros 
+\emph on
+softwares
+\emph default
+ com funções matemáticas específicas, como o 
+\emph on
+SciL
+\emph default
+ab.
+ 
+\end_layout
+
+\begin_layout Standard
+Após serem ligados os NodeMCUs e o ESP32, foi iniciado um cronômetro externo,
+ de modo a contabilizar o intervalo de tempo entre eventuais acontecimentos
+ ocorridos durante o experimento, tais como instabilidade da maquina servidora,
+ parada total de funcionamento da mesma, etc.
+\end_layout
+
+\begin_layout Section
+Experimentação
+\end_layout
+
+\begin_layout Subsection
+Algoritmo
+\end_layout
+
+\begin_layout Standard
+A seguir está descrito em pseudo-código, o algoritmo utilizado para executar
+ requisições ICMP.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithm} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Envio constante de requisicoes ICMP para um host na rede} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}  
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $ssid 
+\backslash
+leftarrow 'Id-da-rede'$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $password 
+\backslash
+leftarrow 'Senha'$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE void():
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE ComunicacaoSerial.inicia(
+\begin_inset Quotes eld
+\end_inset
+
+115200 baulds
+\begin_inset Quotes erd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE Aguardar(10-milissegundos)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE imprimir(Conectando a rede...)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE Wifi.inicia(ssid, password)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+RETURN null
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+WHILE {Wifi status != conectado}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE esperar(100-milissegundos)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ENDWHILE
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE MonitorSerial.imprimir('Wifi-conectado-com-ip')
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE MonitorSerial.imprimir(Wifi.IpLocal())
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE loop():{
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE MonitorSerial.imprimir('ping-host')
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE MonitorSerial.imprimir(endereço-host)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+IF{resposta recebida == verdadeiro}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE MonitorSerial.imprimir('Sucesso')
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE ELSE 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE MonitorSerial.imprimir('Erro!')
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ENDIF
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE esperar(500-milissegundos)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+RETURN null
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Execução do experimento
+\end_layout
+
+\begin_layout Standard
+A figura 9, a seguir mostra os dispositivos conectados à rede em que está
+ o servidor vítima do ataque DDoS.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Lista de Clientes conectados
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /mnt/fa8af144-0137-4d4a-9d0d-efd07de96fb2/@home/wesley/Documentos/TCC/Ilustracoes/clientes.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+fonte: o autor.
+ Imagem obtida do painel de controle do roteador.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A figura 10, mostra a página web fictícia criada para o servidor web (Apache)
+ exibir enquanto sua execução normal.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Página Web entregue pelo servidor Web
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /mnt/fa8af144-0137-4d4a-9d0d-efd07de96fb2/@home/wesley/Documentos/TCC/Ilustracoes/pagina.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+fonte: o autor.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A figura 11, mostra os dispositivos utilizados para execução do ataque DDoS.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dispositivos utilizados para o ataque DDoS
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /mnt/fa8af144-0137-4d4a-9d0d-efd07de96fb2/@home/wesley/Documentos/TCC/Ilustracoes/nodes.png
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+fonte: o autor.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A figura 12, retrata a quantidade de pacotes enviadas num curto espaço de
+ tempo durante a execução do ataque.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fluxo de pacotes com destino ao servidor web
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /mnt/fa8af144-0137-4d4a-9d0d-efd07de96fb2/@home/wesley/Documentos/TCC/Ilustracoes/icmp_pacotes
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+fonte: o autor.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A figura 13, retrata a quantidade de bytes que percorria a rede ao dispositivo
+ atacado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fluxo de bytes com destino ao alvo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /mnt/fa8af144-0137-4d4a-9d0d-efd07de96fb2/@home/wesley/Documentos/TCC/Ilustracoes/icmp_bytes
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+fonte: o autor.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A figura 14, a seguir foi extraída da tela de um navegador web ao tentar
+ acessar a página web que deveria ser provida pelo servidor web.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tela do navegados contendo erro
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /mnt/fa8af144-0137-4d4a-9d0d-efd07de96fb2/@home/wesley/Documentos/TCC/Ilustracoes/Opera Instantâneo_2018-11-03_212024_192.168.0.8.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+fonte: o autor.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Resultados obtidos
+\end_layout
+
+\begin_layout Standard
+Durante a execução do experimento, foi possível identificar que o grande
+ fluxo de dados que incorre sobre a rede em direção a um nó em específico
+ é limitado pela capacidade de tráfego da camada física e dos nós que intercepta
+m o fluxo de pacotes.
+ Roteadores 
+\emph on
+wireless
+\emph default
+ convencionais tem taxa de transferência limitada à cerca de 
+\begin_inset Formula $300$
+\end_inset
+
+ mbps, suficientes para suportar o tráfego durante o ataque.
+ Ao direcionar requisições do tipo 
+\emph on
+echo request
+\emph default
+ para um nó especifico da rede, neste caso, o computador que abrigava o
+ servidor web, a taxa de transferência chegou a 
+\begin_inset Formula $1,28$
+\end_inset
+
+ Kilobyte por segundo, puramente de 
+\emph on
+echo requests
+\emph default
+, incluindo os demais datagramas que encapsulam o datagrama ICMP.
+\end_layout
+
+\begin_layout Standard
+No total, foram identificados através do 
+\emph on
+Wireshark,
+\emph default
+ 
+\begin_inset Formula $125514$
+\end_inset
+
+ pacotes de dados trafegando pela rede em direção ao nó alvo do ataque,
+ sendo 
+\begin_inset Formula $95266$
+\end_inset
+
+ do tipo 
+\emph on
+ICMP echo request.
+\end_layout
+
+\begin_layout Standard
+Como a maioria do tráfego trata-se de requisições ao nó atacado, naturalmente
+ o alvo tentou responde à tal demanda com o máximo de eficiência possível.
+ Porém, como esperado não foi possível atender à tantas requisições.
+ De acordo com Tanembaum (2010, p.463), esse conjunto de requisições não
+ correspondidas é alocado numa 
+\begin_inset Quotes eld
+\end_inset
+
+fila de execução
+\begin_inset Quotes erd
+\end_inset
+
+ e destinada à cada CPU (
+\emph on
+Central Processing Unit
+\emph default
+ ou Unidade Central de Processamento).
+ 
+\end_layout
+
+\begin_layout Standard
+O escalonador do sistema operacional tenta seleciona um processo de mais
+ alta prioridade e quando um tempo limite predeterminado é atingido, os
+ processos são movidos para uma pilha de processos expirados, mas devido
+ a grande quantidade de processos de mesma prioridade ainda não executados,
+ tal ação não surte o efeito de aliviar a carga de trabalho nas CPUs.
+ 
+\end_layout
+
+\begin_layout Standard
+A figura 15, a seguir exemplifica o chaveamento de processos no sistema
+ operacional durante um ataque DDoS.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Chaveamento de processos no sistema operacional.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /mnt/fa8af144-0137-4d4a-9d0d-efd07de96fb2/@home/wesley/Documentos/TCC/Ilustracoes/chaveamento_processos.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+fonte: o autor.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Foram identificados cerca de 
+\begin_inset Formula $37615$
+\end_inset
+
+ pacotes em resposta aos 
+\emph on
+
+\begin_inset Formula $67646$
+\end_inset
+
+ echo requests.
+ 
+\emph default
+O tempo entre o início do ataque e primeiros sinais de instabilidade no
+ funcionamento da máquina que hospedara o servidor 
+\emph on
+web
+\emph default
+ foi de aproximadamente 92 minutos.
+ Após cerca de 135 minutos de envio de requisições, a máquina passou a apresenta
+r sinais mais visíveis de mau funcionamento, como travamentos totais eventuais.
+ Embora ainda respondendo a algumas poucas requisições ICMP.
+ Aproximadamente 
+\begin_inset Formula $280$
+\end_inset
+
+ minutos depois do início do experimento, a maquina parou de responder totalment
+e as 
+\emph on
+echo requests.
+ 
+\end_layout
+
+\begin_layout Standard
+Devido aos esforços para atender tais requisições, o sistema operacional
+ entra em colapso ao priorizar atender tais tarefas ao invés de continuar
+ a prover os serviços essenciais para o funcionamento do equipamento.
+ Consequentemente, a atividade-fim de atuar como um servidor de páginas
+ para 
+\emph on
+web
+\emph default
+ deixa ser cumprida, à principio causando lentidão durante a entrega de
+ páginas ao usuário.
+ E por fim, a inoperabilidade total do serviço após 
+\begin_inset Formula $311$
+\end_inset
+
+ minutos.
+\end_layout
+
+\begin_layout Standard
+Enquanto o experimento ocorria, um computador ligado a mesma rede acessava
+ periodicamente a página web hospedada na máquina servidora.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusão
+\end_layout
+
+\begin_layout Standard
+A evolução na infraestrutura das redes de telecomunicação possibilitou que
+ ideias cada vez mais sofisticadas para conectar a vida das pessoas à rede
+ fossem concretizadas.
+ Contudo, cada dispositivo inteligente conectado à Internet pode ser utilizados
+ de modo nem sempre positivo.
+ Usuários mal intencionado, seja o consumidor final ou mesmo os fabricantes
+ de produtos, podem empregar à capacidade de conexão à rede e a estrutura
+ que compõe a Internet através dos protocolos de comunicação como o ICMP
+ para performar requisições a um dispositivo da rede.
+\end_layout
+
+\begin_layout Standard
+A utilização de dispositivos IoT para ataques a redes deve ser considerada
+ pois, devido ao baixo custo é possível a montagem de grandes malhas compostas
+ de pequenos artefatos dotados de um microprocessador e os demais componentes
+ que possibilitam sua conexão com a Internet.
+\end_layout
+
+\begin_layout Standard
+Servidores Web são potenciais alvos, quando o gerenciamento da rede é falho
+ de modo que um grande fluxo de requisições pode ser enviado para um único
+ destinatário.
+ O alvo de tal ataque, devido a suas limitações de 
+\emph on
+hardware
+\emph default
+, é incapaz de responder à tantas requisições e ocasionalmente entra em
+ colapso e, consequente para de prover o serviço que fora designado.
+\end_layout
+
+\begin_layout Standard
+Tal falha, dependendo da função que o servidor executa, pode ter como consequênc
+ia a instalabilidade de sistemas conectados ao servidor, como também a inoperabi
+lidade do total do mesmo.
+ Como consequência, podem ser acarretados graves problemas, tanto financeiros,
+ como pôr em risco a vida de usuários finais, por exemplo: ao causar instabilida
+de num servidor web que registre em tempo real sobre sinais vitais de um
+ paciente clínico.
+ 
+\end_layout
+
+\begin_layout Standard
+Mesmo os sistemas operacionais modernos, não estão preparados para lidar
+ com esse tipo de ataque, cabendo aos responsáveis pelo gerenciamento da
+ rede criar barreiras que dificultem esse tipo de ataque.
+ Bloquear todas as requisições ICMP não solucionam de forma eficiente tal
+ problema, segundo a RFC 5927 (2010, p.10) que descreve diversos ataques
+ utilizando o protocolo ICMP, principalmente a técnica de 
+\emph on
+ICMP flooding 
+\emph default
+e como evitar tais ataques.
+ Por exemplo, ao aplicar regras de Netfilter em sistemas GNU/Linux que estão
+ geralmente presentes em roteadores utilizados comercialmente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Address
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintAll"
+bibfiles "../latex_artigo/database"
+options "bibtotoc,abntex2-alf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Apêndice
+\end_layout
+
+\begin_layout Subsection*
+Código-fonte utilizado
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Algoritmo utilizado no ataque
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=C, frame=single]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+#include <ESP826WiFi.h> 
+\end_layout
+
+\begin_layout Plain Layout
+#include <ESP8266Ping.h>
+\end_layout
+
+\begin_layout Plain Layout
+const char* ssid = "#####"; // SSID da rede que será conectado
+\end_layout
+
+\begin_layout Plain Layout
+const char* password = "#####"; // Senha da rede que será conectada
+\end_layout
+
+\begin_layout Plain Layout
+const char* remote_host = "###.###.###.###"; //Endereço IP ou URL do dispositivo
+ alvo
+\end_layout
+
+\begin_layout Plain Layout
+void setup() { 
+\end_layout
+
+\begin_layout Plain Layout
+Serial.begin(115200); // Inicia a comunicação serial
+\end_layout
+
+\begin_layout Plain Layout
+delay(10); // Agurda 10 milissegundos
+\end_layout
+
+\begin_layout Plain Layout
+// Inicia a conexão à rede sem-fio.
+\end_layout
+
+\begin_layout Plain Layout
+Serial.println(); 
+\end_layout
+
+\begin_layout Plain Layout
+Serial.println("Conectando à rede Wi-Fi"); 
+\end_layout
+
+\begin_layout Plain Layout
+WiFi.begin(ssid, password); 
+\end_layout
+
+\begin_layout Plain Layout
+while (WiFi.status() != WL_CONNECTED) { // verifica se conectado ou não.
+\end_layout
+
+\begin_layout Plain Layout
+delay(100); 
+\end_layout
+
+\begin_layout Plain Layout
+Serial.print("."); }
+\end_layout
+
+\begin_layout Plain Layout
+Serial.println(); 
+\end_layout
+
+\begin_layout Plain Layout
+Serial.print("WiFi conectado com IP "); //Exibe o endereço local do dispositivo
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Serial.println(WiFi.localIP());}
+\end_layout
+
+\begin_layout Plain Layout
+void loop() { 
+\end_layout
+
+\begin_layout Plain Layout
+Serial.print("Envio de ping ao host "); 
+\end_layout
+
+\begin_layout Plain Layout
+Serial.println(remote_host); 
+\end_layout
+
+\begin_layout Plain Layout
+if(Ping.ping(remote_host)) { //Verifica resposta de ping contra o objeto
+ atacado
+\end_layout
+
+\begin_layout Plain Layout
+Serial.println("Sucesso!!"); } else { 
+\end_layout
+
+\begin_layout Plain Layout
+Serial.println("Erro!:("); } 
+\end_layout
+
+\begin_layout Plain Layout
+delay(500); } //Aguarda meio segundo e refazer ICMP 
+\emph on
+echo
+\emph default
+.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

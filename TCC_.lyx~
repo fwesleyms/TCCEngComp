@@ -1,0 +1,1801 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+%\usepackage{hyperref}
+%
+\usepackage{listings,lstautogobble}
+\usepackage{empheq}
+\usepackage{longtable}
+\usepackage{steinmetz,environ}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{amsmath,indentfirst}
+\usepackage{caption}
+\usepackage[table,usenames,dvipsnames]{xcolor}
+\definecolor{celeste1}{RGB}{0,154,205}
+\definecolor{verde5}{RGB}{0,150,0}
+\definecolor{verde1}{RGB}{0,200,0}
+\definecolor{firebrick}{RGB}{178,34,34}
+\definecolor{crimson}{RGB}{220,20,60}
+\definecolor{reda}{RGB}{220,20,70}
+\definecolor{sea}{RGB}{46,139,87}
+\definecolor{rosadito}{RGB}{255,192,203}
+\definecolor{orange3}{RGB}{205,102,0}
+\definecolor{royalblue}{RGB}{0,35,102}
+\definecolor{azvi}{RGB}{148,0,211}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{multirow} 
+\setlength{\columnsep}{0.5cm}
+\usepackage[titletoc]{appendix}
+
+
+
+% tabela longa que quebra entre p\'aginas
+\usepackage{longtable}
+%identando
+%\usepackage{indentfirst}
+%imagen en negritas
+%\usepackage[labelfont={it,rm}, tableposition=top]{caption}
+%\usepackage[labelfont={it,rm}]{caption}
+%%%%%%%%%%%%%%%%
+%%%PACKEGE CAPTION
+%%%%%%%%%%%%%%%%
+
+\DeclareCaptionFont{colorFigure}{\color{black}}
+\DeclareCaptionFont{colorTable}{\color{black}}
+\captionsetup[figure]{labelfont={bf,footnotesize,colorFigure},textfont={it,footnotesize},format=hang}%%
+%labelsep=period}
+\captionsetup[table]{labelfont={bf,footnotesize,colorTable}, format=hang,textfont={it,footnotesize}}
+\captionsetup[lstlisting]{labelfont={bf,footnotesize,colorTable}, format=hang,textfont={it,footnotesize}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%Package SECTSTY
+%Para centrar el capitulo
+\usepackage{sectsty}
+%\chapterfont{\centering}
+%cambiar tamanho das fontes
+\sectionfont{\fontsize{15}{15}\selectfont\color{black}}
+\subsectionfont{\fontsize{13}{13}\selectfont\color{black}}
+\subsubsectionfont{\fontsize{12}{12}\selectfont\color{black}\em}
+\usepackage{url}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage[siunitx]{circuitikz}
+\usepackage[thinlines]{easytable}
+\setlength{\extrarowheight}{2pt}
+\renewcommand*\arraystretch{1}
+
+%\renewcommand{\theequation}{\thesection.\arabic{equation}}
+%\usepackage{titlesec}
+\usepackage{varioref}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+
+%\makeatletter
+%\renewcommand\thefigure{\mbox{\thechapter-\arabic{figure}}}
+%\makeatother
+%\crefformat{figure}{#2\color{Cyan!40!blue}{{[Fig.~#1#3]}}}
+%\crefformat{equation}{#2\color{Cyan!40!blue}{{[Eq.~#1#3]}}}
+%\crefformat{table}{#2\color{Cyan!40!blue}{{[Tab.~#1#3]}}}
+
+\crefname{lstlisting}{listing}{listings}
+\Crefname{lstlisting}{Listing}{Listings}
+\crefname{subsection}{subsection}{subsections}
+\crefname{appendix}{appendix}{appendixes}
+\crefformat{figure}{\textcolor{black}{[#2fig.~#1#3]}}
+\crefformat{equation}{\textcolor{black}{[#2eq.~#1#3]}}
+\crefformat{table}{\textcolor{black}{[#2tab.~#1#3]}}
+\crefformat{appendix}{\textcolor{black}{[#2ap.~#1#3]}}
+\crefformat{subsection}{\textcolor{black}{#2subsecção~#1#3}}
+\crefformat{listing}{\textcolor{black}{[#2lst.~#1#3]}}
+\crefformat{Listing}{\textcolor{black}{[#2lst.~#1#3]}}
+
+
+%\crefname{figure}{\em{[Fig.~(\thefigure)]}}{figures}
+%\Crefname{figure}{Figure}{Figures}
+
+%nmumero de linas na tabela
+\newcounter{trow}
+\newcommand{\firstrow}{\setcounter{trow}{1}\arabic{trow}}
+\newcommand{\nextrow}{\addtocounter{trow}{1}\arabic{trow}}
+
+\usepackage{pgfornament}%ORNAMENT
+\usepackage{pstricks}
+
+
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.8em}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{textcomp}
+
+%cor pagina
+%\usepackage{pagecolor}\usepackage{afterpage}
+
+\usepackage{tcolorbox}
+\usepackage{calc}
+\usepackage{colortbl}
+\usetikzlibrary{arrows.meta}
+\tcbuselibrary{skins,theorems,breakable,fitting}
+\newtcolorbox{resposta}[2][]{
+empty,
+coltitle=red!75!black,fonttitle=\bfseries,
+borderline horizontal={0.5mm}{0pt}{red!50!white},
+breakable }
+%colbacktitle=gray!30,
+%colback=white,
+%coltitle=black,
+%colframe=gray!90,
+%title=Resposta,
+%fonttitle=\em,
+%borderline vertical={2pt}{0pt}{red},
+%before upper={\parindent2em\parskip0.8em},breakable}
+
+\newtcolorbox[auto counter,number format=\Alph]{perg}[2][]{%
+colbacktitle=crimson!80,
+coltitle=white,
+colframe=azvi,
+colback=azvi!10!white,
+fonttitle=\bfseries,
+title=Questão~ \thetcbcounter #2,#1,
+breakable%center title
+}
+\usepackage{pdfpages}
+
+
+
+%########### LISTINGS ################
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\newcommand{\SimCod}[1]{\textcolor{blue}{#1}\ttfamily\bfseries}
+\newcommand{\ColorNum}[1]{\textcolor{firebrick}{#1}\ttfamily\bfseries}
+
+
+\lstset{
+ % backgroundcolor=\color{azvi!4},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\scriptsize\ttfamily,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=top,                    % sets the caption-position to bottom
+  commentstyle=\color{gray},    % comment style
+  deletekeywords={},            % if you want to delete keywords from the given language
+  %escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue}\ttfamily\bfseries,   % keyword style
+  language=Python,                 % the language of the code
+  %otherkeywords={@,&&,^,.,-,+,*,...,classdef,properties,methods,logsig},           % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  %numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\ttfamily\color{black}\scriptsize, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{blue!80},     % string literal style
+  tabsize=4,	                   % sets default tabsize to 2 spaces
+  title=\lstname,                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+  %literate=*%{\{}{{\SimCod{\{}}}1
+               %{(}{{\SimCod{(}}}1
+               %{;}{{\SimCod{;}}}1
+               %{,}{{\SimCod{,}}}1            
+              % {>}{{\SimCod{$>$}}}1
+               %{<}{{\SimCod{$<$}}}1
+               %{=}{{\SimCod{$=$}}}1
+               %{.}{{\SimCod{$\centerdot$}}}1
+               %{0}{{{\ColorNum{0}}}}1
+               %{.0}{{{\ColorNum{.0}}}}1
+               %{1}{{{\ColorNum{1}}}}1
+               %{2}{{{\ColorNum{2}}}}1
+               %{3}{{{\ColorNum{3}}}}1
+               %{4}{{{\ColorNum{4}}}}1
+               %{5}{{{\ColorNum{5}}}}1
+               %{6}{{{\ColorNum{6}}}}1
+               %{7}{{{\ColorNum{7}}}}1
+               %{8}{{{\ColorNum{8}}}}1
+               %{9}{{{\ColorNum{9}}}}1
+             % {)}{{\SimCod{)}}}1
+%,
+%xleftmargin=5pt,
+%framexleftmargin=5pt,
+%autogobble=true
+linewidth=\textwidth,
+%xleftmargin=0.28\textwidth,
+%xrightmargin=0.28\textwidth,
+}
+%\usepackage[alf, abnt-verbatim-entry=no]{abntex2cite}
+\PassOptionsToPackage{hyphens}{url}
+\urlstyle{tt}
+\usepackage{url}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language brazilian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "times" "default"
+\font_sans "helvet" "default"
+\font_typewriter "courier" "default"
+\font_math "default" "auto"
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing other 1.5
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0.75cm
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle plain
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Título do Trabalho
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand
+\backslash
+tituloRelatorio{
+\backslash
+Large{
+\end_layout
+
+\end_inset
+
+ ANÁLISE DA IMPLEMENTAÇÃO DE REDES 
+\emph on
+WIRELESS
+\emph default
+ NO MODO TSCH DO PROTOCOLO MAC EM SUAS DISTINTAS SOLUÇÕES
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+COMEÇO DA CARATURA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{titlepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+LOGO DA UFC
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+newpagecolor{black}
+\backslash
+afterpage{
+\backslash
+restorepagecolor}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+textrm{
+\backslash
+color{black}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+includegraphics[scale=0.11]{img/LOGO_PNG}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+vspace{-0.4cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\backslash
+textsc {
+\backslash
+large{}Universidade Federal Do Ceará}}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+vspace{-0.3cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+textit{Campus} de Sobral}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset VSpace smallskip
+\end_inset
+
+Curso de Engenharia da Computação
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{
+\backslash
+tituloRelatorio}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+par
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+pgfornament[width=8cm, color = red!50!blue!32!, symmetry=h]{83}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}{
+\backslash
+large 
+\backslash
+par}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vfill{}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Atividade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Seminário de Monografia
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Orientador
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wendley Souza Silva
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Aluno
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Francisco Wesley Melo Silva
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+DATA DE HOJE (COLOCA A DATA DE GERAÇÃO DO PDF)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{Sobral $-$ CE, 
+\backslash
+today{}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{titlepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\noun on
+\begin_inset space \hspace*{}
+\length 3.5cm
+\end_inset
+
+Francisco Wesley Melo Silva
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 2cm
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "15.5cm"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{large}
+\end_layout
+
+\end_inset
+
+ANÁLISE DA IMPLEMENTAÇÃO DE REDES 
+\shape slanted
+\emph on
+WIRELESS
+\shape default
+\emph default
+ NO MODO TSCH DO PROTOCOLO MAC EM SUAS DISTINTAS SOLUÇÕES 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{large}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align right
+\begin_inset VSpace 3cm
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "48col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+small{}
+\end_layout
+
+\end_inset
+
+Memorial de Monografia apresentado à disciplina de Seminário de Monografia
+ do Curso Engenharia de Computação como requisito parcial para obtenção
+ do grau de Engenheiro de Computação na Universidade Federal do Ceará 
+\emph on
+- campus
+\emph default
+ Sobral.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\begin_inset VSpace 3cm
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Orientador
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Prof.
+ Me.
+ Wendley Souza Silva
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset VSpace 3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace*{}
+\length 5.5cm
+\end_inset
+
+Sobral - CE, Junho de 2017
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+PARA COLOCAR EQUAÇÕES PASSO A PASSO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%EQUACOES
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+NewEnviron{EqEst}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{empheq}[box={
+\backslash
+fboxsep=8pt
+\backslash
+colorbox{azvi!10}}]{align}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+BODY
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{empheq}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+rowcolors{4}{}{}
+\backslash
+arrayrulewidth=0.8pt
+\end_layout
+
+\begin_layout Plain Layout
+
+%===============================================================================
+======
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+rowcolors{4}{}{}
+\backslash
+arrayrulewidth=0.8pt
+\end_layout
+
+\begin_layout Plain Layout
+
+%Orcad symbol
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand*
+\backslash
+orcad{
+\backslash
+textbf{OrCAD}
+\backslash
+textsuperscript{
+\backslash
+footnotesize{
+\backslash
+texttrademark}}}
+\end_layout
+
+\begin_layout Plain Layout
+
+%matlab symbol
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+newcommand*
+\backslash
+matlab{$
+\backslash
+mathsf{
+\backslash
+mathbf{Matlab^{
+\backslash
+copyright}}}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand*
+\backslash
+matlab{
+\backslash
+textbf{Matlab}
+\backslash
+textsuperscript{
+\backslash
+footnotesize{
+\backslash
+copyright}}}
+\end_layout
+
+\begin_layout Plain Layout
+
+%Multisim symbol
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand*
+\backslash
+multisim{
+\backslash
+textbf{NI Multisim}
+\backslash
+textsuperscript{
+\backslash
+footnotesize{
+\backslash
+texttrademark}}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand*
+\backslash
+bp{
+\backslash
+textit{Back-propagation}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand{
+\backslash
+arq}[1]{
+\backslash
+fcolorbox{gray!0}{yellow!50}{
+\backslash
+texttt{#1}}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+lstlistingname}{Lista}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{page}{1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+COMEÇA O DOCUMENTO DO RELATORIO
+\end_layout
+
+\begin_layout Plain Layout
+PARA RELATÓRIO, NÃO É NECESSÁRIO SEPARAR EM DOCUMENTOS FILHOS
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introdução
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Com a evolução dos sistemas de comunicação, muitas aplicação foram desenvolvidas
+ e incorporadas ao cotidiano.
+ Sistemas capazes de prover o funcionamento de diversos serviços na 
+\emph on
+web
+\emph default
+ como atendimento bancário, 
+\emph on
+streaming 
+\emph default
+de mídia, serviços de localização, agenciamento de transporte, etc.
+ Ao passo desse desenvolvimento outra onda tecnológica tomou força nos últimos
+ anos, a chamada 
+\emph on
+Internet of Things 
+\emph default
+(IoT ou Internet das Coisas) tem sido capaz de suportar cenários cada vez
+ mais interativos, integrando diferentes redes e dispositivos, tudo isso
+ baseado na 
+\emph on
+web.
+
+\emph default
+ 
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Essa grande rede está distribuida ao redor do globo, composta por diversos
+ dispositivos de variado porte que vão desde grandes 
+\emph on
+mainframes
+\emph default
+ à simples dispositivos embarcados.
+ Isso torna esse sistema altamente escalável e tolerante à falhas, porém
+ também possibilita que seus nós sejam utilizados para outros fins, às vezes
+ com propósitos destrutíveis.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Primordialmente, é necessário definirmos as tecnologias que podem ser utilizadas
+ para o funcionamento da Internet, assim como dos dispositivos que compõe
+ IoT e suas características principais, assim como detalharmos as ferramentas
+ à serem aplicadas.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Este trabalho tem como objetivo principal fazer uma análise de um cenário
+ em que dispositivos empregados para a construção de redes IoT, podem ser
+ utilizados de forma destrutiva para atacar, desestabilizar e até mesmo
+ destruir serviços de internet, que são de extrema importância para o mundo
+ atual.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Motivação
+\end_layout
+
+\begin_layout Standard
+O presente trabalho se deu pela percepção das características de um novo
+ e eficaz padrão de funcionamento aplicado à camada MAC.
+ Devido à sua grande capacidade de ser aplicado em tecnologias emergentes
+ com potencial de mercado tão grande quanto, faz-se necessário um estudo
+ da sua implementação.
+ Através de tal estudo, é possível que sejam identificadas eventuais falhas,
+ e por fim sugerir alguma forma para superar seus defeitos, ou ao menos
+ propor melhorias.
+ 
+\end_layout
+
+\begin_layout Subsection
+Objetivos
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang english
+Objetivos Gerais
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Analisar um cenário em que tecnologias usadas para IoT são aplicadas de
+ forma que sejam utilizadas para ataque à sistemas Web, e tentativa de desativaç
+ão do sistemas através de ataque de negação de serviço.
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang english
+Objetivos Específicos
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Utilizar dados coletados durante o ataque para a extração de dados à respeito
+ da robustês dos servidores web.
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Fundamentação teórica
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Internet
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+A principio, podemos definir uma internet ou internetwork como um conjunto
+ de redes conectadas entre si.
+ Segundo Forouzan (2007, p.17), a Internet (rede comercial utilizada pela
+ população civil) não é apenas uma estrutura hierárquica de redes, mas sim
+ uma mistura de redes locais e globais que conecta dispositivos.
+ E que é praticamente impossível representá-la devido às suas constantes
+ mudança, como entrada e saída de nós, redes, etc.
+ 
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Arquitetura cliente-servidor
+\end_layout
+
+\begin_layout Subparagraph
+
+\lang english
+Web Server
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Segundo Morimoto (2015, p.347), os servidores web são a espinha dorsal da
+ Internet, são eles que hospedam todas páginas, incluindo os mecanismos
+ de busca e servem como base para todo tipo de aplicativo via web.
+ Um dos principais softwares que executam essa função é o Apache, que suporta
+ desde os recursos básicos, à expansão do suporte através de módulos para
+ linguagens de programação, bancos de dados, etc.
+ Existem vários tipos de servidores voltados para web e diversas aplicações,
+ como e-mail, armazenamento e transferência de arquivos, armazenamento de
+ banco de dados, etc.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Neste trabalho foi utilizado o Apache da familia 2.x que se destaca pelo
+ seu desempo e flexibilidade.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+IoT
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang english
+Dispositivos embarcados
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang english
+NodeMCU/ESP8266
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Ataque de negação de serviço
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang english
+DDoS vs DoS
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang english
+ICMP echo request
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+De acordo com Mota (2013, p.212) os ataques de 
+\emph on
+flood 
+\emph default
+por 
+\emph on
+ping
+\emph default
+ (ICMP 
+\emph on
+echo request) 
+\emph default
+são realizados quando nós de uma rede realizam grande quantidade de requisições
+ do tipo 
+\emph on
+ping
+\emph default
+, com o intúito de causar estresse em computadores servidores.
+ O cabeçalho desse datagrama possui 32 bits, sendo divididos da seguinte
+ forma, os primeiros 8 bits determinam o seu tipo, e os 8 bits posteriores
+ o seu código, e os 16 bits restante estão relacionados ao checksum
+\emph on
+.
+ 
+\emph default
+Nestre trabalho foi utilizado a requisição de tipo 8 - 
+\emph on
+echo request
+\emph default
+ e código 0 - 
+\emph on
+ping echo 
+\emph default
+request.
+
+\emph on
+ 
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Ao enviar multiplas requisições por segundo, a maquina servidores tentará
+ interpretá-las e respondê-las, porém devido a suas limitações fisicas,
+ podem ser constatadas instabilidades, esse cenário se agrava quando multiplos
+ host estão fazendo grande quantidade de requisições para essa máquina.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+A figuta a seguir ilustra como esse tipo de ataque acontece.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang english
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang english
+\begin_inset Graphics
+	filename /home/wesley/Documentos/TCC/Ilustracoes/flood.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\lang english
+Ataque de flood ICMP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\lang english
+Metodologia
+\end_layout
+
+\begin_layout Section
+
+\lang english
+Experimentação
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Código Fonte
+\end_layout
+
+\begin_layout Section
+
+\lang english
+Resultados obtidos
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusão
+\end_layout
+
+\begin_layout Standard
+Ambas as soluções de algoritmos de programação para redes TSCH exigem atualizaçã
+o constante das informações a respeito da situação dos 
+\emph on
+links
+\emph default
+ de informação em prol de elaborar um sistema de comunicação de alta qualidade,
+ por isso devem ser analisadas.
+ É importante o uso de técnicas para análise das condições dos 
+\emph on
+data frames
+\emph default
+, em que 
+\emph on
+frames
+\emph default
+ de dados são avaliados portando um elemento específico, assim as diferenças
+ entre as soluções e seus respectivos algoritmos devem ser abordadas e possivelm
+ente atenuadas.
+ 
+\end_layout
+
+\begin_layout Standard
+Devido às evoluções tecnológicas, expoente mercado de dispositivos voltados
+ para a chamada 'Internet das Coisas' além de aplicabilidade na indústria,
+ é notável a importância do estudo das características que propiciam o funcionam
+ento correto de tais dispositivos.
+ 
+\end_layout
+
+\begin_layout Standard
+É importante salientar que nem toda tecnologia, por mais revolucionária
+ que seja, está livre de defeitos e falhas ou não carregue algo que possa
+ ser melhorado.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintAll"
+bibfiles "../latex_artigo/database"
+options "bibtotoc,IEEEtran"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
